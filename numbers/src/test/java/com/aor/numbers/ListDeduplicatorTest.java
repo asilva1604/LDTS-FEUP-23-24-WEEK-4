@@ -23,8 +23,23 @@ public class ListDeduplicatorTest {
         list = Arrays.asList(1,2,4,2,5);
         expected = Arrays.asList(1,2,4,5);
 
+        ListSorter s = new ListSorter();
+
         ListDeduplicator deduplicator = new ListDeduplicator();
-        List<Integer> distinct = deduplicator.deduplicate(list);
+        List<Integer> distinct = deduplicator.deduplicate(list, s);
+
+        Assertions.assertEquals(expected, distinct);
+    }
+
+    @Test
+    public void deduplicate2() {
+        list = Arrays.asList(1,2,4,2);
+        expected = Arrays.asList(1,2,4);
+
+        ListSorter s = new ListSorter();
+
+        ListDeduplicator deduplicator = new ListDeduplicator();
+        List<Integer> distinct = deduplicator.deduplicate(list, s);
 
         Assertions.assertEquals(expected, distinct);
     }

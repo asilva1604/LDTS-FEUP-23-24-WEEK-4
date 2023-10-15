@@ -66,4 +66,13 @@ public class ListAggregatorTest {
 
         Assertions.assertEquals(3, distinct);
     }
+
+    @Test
+    public void maxPitImprove() {
+        list = Arrays.asList(15, 10, -3);
+        ListAggregator aggregator = new ListAggregator();
+        int max = aggregator.max(list);
+
+        Assertions.assertEquals(15, max);
+    }
 }

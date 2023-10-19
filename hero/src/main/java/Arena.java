@@ -12,10 +12,10 @@ import java.util.Random;
 public class Arena {
     private final int width;
     private final int height;
-    private final Hero hero;
-    private final List<Wall> walls;
-    private List<Coin> coins;
-    private List<Monster> monsters;
+    final Hero hero;
+    final List<Wall> walls;
+    public List<Coin> coins;
+    List<Monster> monsters;
 
     public Arena(int width, int height) {
         this.width = width;
@@ -77,7 +77,7 @@ public class Arena {
         return false;
     }
 
-    private boolean canHeroMove(Position position) {
+    public boolean canHeroMove(Position position) {
         for (Wall wall : walls) {
             if (wall.getPosition().getX() == position.getX() && wall.getPosition().getY() == position.getY()) {
                 return false;
@@ -86,7 +86,7 @@ public class Arena {
         return 0 <= position.getX() && position.getX() < width && position.getY() < height && 0 <= position.getY();
     }
 
-    private void retrieveCoins() {
+    public void retrieveCoins() {
         for (Coin coin : coins) {
             if (coin.getPosition().equals(hero.getPosition())) {
                 coins.remove(coin);
